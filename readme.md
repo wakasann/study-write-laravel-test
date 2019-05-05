@@ -43,12 +43,12 @@ homestead edit
 
 ```
 folders:
-    - map: ~/my-path/l5test/ # 你本地的项目目录地址
-      to: /home/vagrant/l5test
+    - map: ~/my-path/study-write-laravel-test/ # 你本地的项目目录地址
+      to: /home/vagrant/study-write-laravel-test
 
 sites:
-    - map: l5test.test
-      to: /home/vagrant/l5test/public
+    - map: ltest.test
+      to: /home/vagrant/study-write-laravel-test/public
 
 databases:
     - ltest
@@ -77,7 +77,7 @@ cp .env.example .env
 你可以根据情况修改 `.env` 文件里的内容，如数据库连接、缓存、邮件设置等：
 
 ```
-APP_URL=http://l5test.test
+APP_URL=http://ltest.test
 ...
 DB_HOST=localhost
 DB_DATABASE=ltest
@@ -110,7 +110,7 @@ php artisan key:generate
 
 #### 8. 配置 hosts 文件
 
-    echo "192.168.10.10   l5test.test" | sudo tee -a /etc/hosts
+    echo "192.168.10.10   ltest.test" | sudo tee -a /etc/hosts
 
 
 #### 生成 jwt密钥 
