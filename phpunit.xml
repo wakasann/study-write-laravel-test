@@ -27,5 +27,9 @@
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
+        <env name="DB_DATABASE" value="ltest"/>
+        <env name="DB_USERNAME" value="testing"/>
+        <env name="DB_PASSWORD" value="testing"/>
+        <env name="TEST_SEEDERS" value="\SimpleYamlSeeder"/>
     </php>
 </phpunit>
