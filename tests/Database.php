@@ -3,6 +3,7 @@
 namespace Tests;
 
 use PDO;
+
 class Database
 {
     /** @var  \Tests\Database singleton to drop test database in destructor */
@@ -33,7 +34,7 @@ class Database
         }
     }
 
-    public static function getRandomDBName( $prefix,  $host,  $username,  $password,  $charset = 'utf8mb4',  $collation = 'utf8mb4_unicode_ci')
+    public static function getRandomDBName( $prefix,  $host,  $username,  $password,  $charset = 'utf8',  $collation = 'utf8_unicode_ci')
     {
         if (static::$instance) {
             return static::$instance->getDBName();
@@ -84,9 +85,8 @@ class Database
         foreach ($databases as $database) {
             $database = reset($database);
 
-            if (starts_with($database, $prefix) && is_numeric(explode('_', $database)[1])) {
+            if (strpos($database,'_') !== false && starts_with($database, $prefix) && is_numeric(explode('_', $database)[1])) {
                 $pdo->exec('DROP DATABASE `' . $database . '`');
-
                 echo 'Drop database ' . $database . PHP_EOL;
             }
         }
