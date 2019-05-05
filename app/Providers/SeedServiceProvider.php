@@ -9,7 +9,7 @@
 namespace App\Providers;
 
 
-use App\Console\Commands\SeedCommand;
+use App\Console\Commands\SeedCommandCustom;
 use Illuminate\Support\ServiceProvider;
 
 class SeedServiceProvider extends ServiceProvider
@@ -19,7 +19,7 @@ class SeedServiceProvider extends ServiceProvider
      *
      * @var bool
      */
-    //protected $defer = true;
+    protected $defer = true;
 
     /**
      * @see \Illuminate\Foundation\Providers::registerSeedCommand()
@@ -27,7 +27,7 @@ class SeedServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('command.seed', function ($app) {
-            return new SeedCommand($app['db']);
+            return new SeedCommandCustom($app['db']);
         });
 
         $this->commands('command.seed');
